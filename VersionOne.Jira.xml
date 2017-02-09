@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<configuration>
+
+
+
+	<Services>
+
+		<!-- Configuration for JIRA Service -->
+		<JiraService>
+
+			<!-- JIRA Connectivity -->
+
+			<JIRAUrl>https://shortcuts.atlassian.net</JIRAUrl>
+			<JIRAUserName>craig.hurst</JIRAUserName>
+			<JIRAPassword>M1ncom003253</JIRAPassword>
+
+			<DefectFilter>"V1Jira_defects_2"</DefectFilter>
+			<!--Id of the filter used to find issues to be created as V1 defects -->
+			<CreateStoryFilter disabled="0" id="10200" />
+			<!--Id of the filter used to find issues to be created as V1 stories -->
+
+			<!-- Fields to update to prevent creating multiple workitems in V1 -->
+			<!-- Not all of these fields are required, consult the documentation on 
+				how to set them -->
+			<CreateFieldId>customfield_10000</CreateFieldId>
+			<!-- ID of JIRA field to update when a V1 workitem is created -->
+			<CreateFieldValue>Open</CreateFieldValue>
+			<!-- Value to set in CreateFieldId -->
+			<CloseFieldId>customfield_10000</CloseFieldId>
+			<!-- ID of JIRA field to update when a V1 workitem is closed -->
+			<CloseFieldValue>Closed</CloseFieldValue>
+			<!-- Value to set in CloseFieldId -->
+			<ProgressWorkflow>11</ProgressWorkflow>
+			<!-- ID of JIRA status to set after a V1 workitem is created -->
+			<ProgressWorkflowClosed>151</ProgressWorkflowClosed>
+			<!-- ID of JIRA status to set after a V1 workitem is closed -->
+			<AssigneeStateChanged>-1</AssigneeStateChanged>
+			<!-- Name to set the assignee to field to when a V1 workitem is closed 
+				(optional) Note: In JIRA 3.10.2 a value of -1 caused 'Automatic' assignment -->
+
+			<!-- These elements are used to create a link in VersionOne to JIRA issue 
+				(we replace #key# with JIRA Issue id) -->
+			<JIRAIssueUrlTemplate>https://shortcuts.atlassian.net/browse/
+			</JIRAIssueUrlTemplate>
+			<JIRAIssueUrlTitle>JIRA</JIRAIssueUrlTitle>
+
+			<!-- What to set the 'Source' field to. Make sure this value exists in 
+				VersionOne. -->
+			<SourceFieldValue>JIRA</SourceFieldValue>
+
+			<!-- ID of Jira field that will hold the VersionOne workitem URL (optional 
+				- this information also appears in the comment) -->
+			<WorkitemLinkFieldId></WorkitemLinkFieldId>
+
+			<!-- Mapping for projects from JIRA to VersionOne -->
+			<ProjectMappings>
+				<Mapping>
+					<JIRAProject>JIRA Integration Test</JIRAProject>
+					<VersionOneProject>Scope:5170</VersionOneProject>
+				</Mapping>
+			</ProjectMappings>
+
+			<!-- Issue priority mappings. If a mapping of JIRA to VersionOne priority 
+				is omitted here, created VersionOne defects do not have any priority set. -->
+			<PriorityMappings>
+				<Mapping>
+					<JIRAPriority id="1">Critical</JIRAPriority>
+					<VersionOnePriority>WorkitemPriority:140</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="2">Urgent</JIRAPriority>
+					<VersionOnePriority>WorkitemPriority:140</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="2">High</JIRAPriority>
+					<VersionOnePriority>WorkitemPriority:140</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="3">Medium</JIRAPriority>
+					<VersionOnePriority>WorkitemPriority:139</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="5">Low</JIRAPriority>
+					<VersionOnePriority>WorkitemPriority:138</VersionOnePriority>
+				</Mapping>
+			</PriorityMappings>
+			<EpicPriorityMappings>
+				<Mapping>
+					<JIRAPriority id="1">Critical</JIRAPriority>
+					<VersionOnePriority>EpicPriority:205</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="2">Urgent</JIRAPriority>
+					<VersionOnePriority>EpicPriority:205</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="2">High</JIRAPriority>
+					<VersionOnePriority>EpicPriority:205</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="3">Medium</JIRAPriority>
+					<VersionOnePriority>EpicPriority:204</VersionOnePriority>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="5">Low</JIRAPriority>
+					<VersionOnePriority>EpicPriority:203</VersionOnePriority>
+				</Mapping>
+			</EpicPriorityMappings>
+
+			<PriorityQMappings>
+				<Mapping>
+					<JIRAPriority id="1">PriorityAus</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:6428</VersionOnePriority>
+					<BacklogGroup>Theme:6399</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="2">PriorityUSA</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:6430</VersionOnePriority>
+					<BacklogGroup>Theme:7113</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="3">PriorityGlobal</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:7112</VersionOnePriority>
+					<BacklogGroup>Theme:7920</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="4">PriorityUK</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:6429</VersionOnePriority>
+					<BacklogGroup>Theme:6400</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="5">Defects</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:6429</VersionOnePriority>
+					<BacklogGroup>Theme:6398</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="5">Defects</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:6429</VersionOnePriority>
+					<BacklogGroup>Theme:6398</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAPriority id="6">PriorityReseller</JIRAPriority>
+					<VersionOnePriority>Custom_PriorityQueues:7238</VersionOnePriority>
+					<BacklogGroup>Theme:7237</BacklogGroup>
+				</Mapping>
+			</PriorityQMappings>
+			<componentMappings>
+				<Mapping>
+					<JIRAComponent id="1">OLS</JIRAComponent>
+					<VersionOneComponent>Custom_Component:28878</VersionOneComponent>
+					<BacklogGroup>Theme:28885</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAComponent id="2">Live</JIRAComponent>
+					<VersionOneComponent>Custom_Component:28879</VersionOneComponent>
+					<BacklogGroup>Theme:28886</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAComponent id="3">POS</JIRAComponent>
+					<VersionOneComponent>Custom_Component:28880</VersionOneComponent>
+					<BacklogGroup>Theme:28887</BacklogGroup>
+				</Mapping>
+				<Mapping>
+					<JIRAComponent id="4">HOS</JIRAComponent>
+					<VersionOneComponent>Custom_Component:28881</VersionOneComponent>
+					<BacklogGroup>Theme:28888</BacklogGroup>
+				</Mapping>
+			</componentMappings>
+		</JiraService>
+
+		<!-- Jira Poll Timer -->
+		<JiraServiceTimer disabled="0"
+			class="VersionOne.ServiceHost.Core.Services.TimePublisherService, VersionOne.ServiceHost.Core">
+			<Interval>5000</Interval>
+			<PublishClass>VersionOne.ServiceHost.JiraServices.JiraHostedService+IntervalSync,
+				VersionOne.ServiceHost.JiraServices</PublishClass>
+		</JiraServiceTimer>
+
+		<!-- Write Workitems to VersionOne, and retrieves Jira-sourced Workitems 
+			that have recently closed -->
+
+		<VersionOneService>
+			<!-- VersionOne field used to hold the Jira Issue identifier. This can 
+				be any text field, including custom fields. -->
+
+			<ExternalIdFieldName>Reference</ExternalIdFieldName>
+			<Settings>
+				<V1Url>https://www51.v1host.com/ShortcutsSoftwareLimited54</V1Url>
+				<AccessToken>1.c663I0LtO3oL6pwBs0enw1rfeos=</AccessToken>
+				<ProxySettings disabled="1">
+					<Url>http://proxyhost</Url>
+					<UserName>username</UserName>
+					<Password>password</Password>
+					<Domain>domain</Domain>
+				</ProxySettings>
+			</Settings>
+		</VersionOneService>
+
+	</Services>
+
+</configuration>
