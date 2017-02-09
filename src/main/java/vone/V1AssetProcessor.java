@@ -307,35 +307,35 @@ public class V1AssetProcessor {
 			String Parent = null;
 			String Component = null;
 			String PriorityQName = null;
-			
+
 			switch (assetTypeName) {
 			case "Defect": {
-				 EstimateName = assetTypeName+".Estimate";
-				 WorkitemType = assetTypeName+".Type";
-				 Owners = assetTypeName+".Owners";
-				 FixVersion = assetTypeName+".Custom_Fix_Version";
-				 Parent = assetTypeName+".Parent";
-				 Component = assetTypeName+".Custom_Component3";
-				 PriorityQName = assetTypeName+".Custom_PriorityQ2";
-break;
+				EstimateName = assetTypeName + ".Estimate";
+				WorkitemType = assetTypeName + ".Type";
+				Owners = assetTypeName + ".Owners";
+				FixVersion = assetTypeName + ".Custom_Fix_Version";
+				Parent = assetTypeName + ".Parent";
+				Component = assetTypeName + ".Custom_Component3";
+				PriorityQName = assetTypeName + ".Custom_PriorityQ2";
+				break;
 			}
 			case "Story": {
-				 EstimateName = assetTypeName+".Estimate";
-				 WorkitemType = assetTypeName+".Category";
-				 Owners = assetTypeName+".Owners";
-				 FixVersion = assetTypeName+".Custom_Fix_Version2";
-				 Parent = assetTypeName+".Parent";
-				 Component = assetTypeName+".Custom_Component4";
-				 break;
+				EstimateName = assetTypeName + ".Estimate";
+				WorkitemType = assetTypeName + ".Category";
+				Owners = assetTypeName + ".Owners";
+				FixVersion = assetTypeName + ".Custom_Fix_Version2";
+				Parent = assetTypeName + ".Parent";
+				Component = assetTypeName + ".Custom_Component4";
+				break;
 			}
 			case "Epic": {
-				
+
 			}
 			}
 			if (defect.getEstimate() != null) {
 
-			asset.setAttributeValue(versionOneServices.getMeta().getAttributeDefinition(EstimateName),
-					defect.getEstimate());
+				asset.setAttributeValue(versionOneServices.getMeta().getAttributeDefinition(EstimateName),
+						defect.getEstimate());
 			}
 			if (defect.getStoryType() != null) {
 
@@ -344,13 +344,11 @@ break;
 			}
 
 			if (assignee != null) {
-				asset.addAttributeValue(versionOneServices.getMeta().getAttributeDefinition(Owners),
-						assignee.getOid());
+				asset.addAttributeValue(versionOneServices.getMeta().getAttributeDefinition(Owners), assignee.getOid());
 
 			}
 			if (fv != null) {
-				asset.addAttributeValue(
-						versionOneServices.getMeta().getAttributeDefinition(FixVersion), fv.getOid());
+				asset.addAttributeValue(versionOneServices.getMeta().getAttributeDefinition(FixVersion), fv.getOid());
 
 			}
 
@@ -418,7 +416,7 @@ break;
 		FilterTerm referenceTerm;
 		QueryResult result;
 		IAssetType fv = versionOneServices.getMeta().getAssetType("Custom_Fix_version");
-		if (defect.getFixVersions() == null){
+		if (defect.getFixVersions() == null) {
 			return null;
 		}
 		for (String version : defect.getFixVersions()) {
